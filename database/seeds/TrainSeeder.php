@@ -31,7 +31,15 @@ class TrainSeeder extends Seeder
 
         // proprieta
 
-        
+        $train->azienda = $faker->randomElement($aziende);
+        $train->stazione_di_partenza = $faker->randomElement($stazioni);
+        $train->stazione_di_arrivo = $faker->randomElement($stazioni);
+        $train->data_partenza = $faker->date();
+        $train->orario_partenza = $faker->time();
+        $train->orario_arrivo = $faker->time();
+        $train->codice_treno = $faker->randomNumber(4, true);
+        $train->prezzo_biglietto = $faker->randomFloat(2, 10, 999);
+        $train->numero_carrozze = $faker->numberBetween(1, 10);
 
         $train->save();
     }
