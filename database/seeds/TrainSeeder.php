@@ -30,7 +30,7 @@ class TrainSeeder extends Seeder
 
         // proprieta
 
-        for($i = 0; $i <= 2000; $i++) {
+        for($i = 0; $i <= 3000; $i++) {
 
             $train = new Train();
 
