@@ -20,11 +20,11 @@ class CreateTrainsTable extends Migration
             $table->string('data_partenza', 15);
             $table->string('orario_partenza', 10);
             $table->string('orario_arrivo', 10);
-            $table->string('codice_treno', 6);
-            $table->float('prezzo_biglietto', 5,2); //999.99
-            $table->tinyInteger('numero_carrozze');
-            $table->boolean('in_orario');
-            $table->boolean('cancellato');
+            $table->smallInteger('codice_treno')->unsigned();
+            $table->float('prezzo_biglietto', 5,2)->unsigned(); //999.99
+            $table->tinyInteger('numero_carrozze')->unsigned();
+            $table->boolean('in_orario')->default(true);
+            $table->boolean('cancellato')->default(false);
             $table->id();
             $table->timestamps();
         });
