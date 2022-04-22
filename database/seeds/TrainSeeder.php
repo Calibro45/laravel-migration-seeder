@@ -13,7 +13,6 @@ class TrainSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $train = new Train();
 
         $aziende =['Trenitalia S.p.A', 'Thello S.A.S', 'Trenord', 'Italo NTV', 'SNCF Voyage Italia'];
         $stazioni = [
@@ -31,16 +30,21 @@ class TrainSeeder extends Seeder
 
         // proprieta
 
-        $train->azienda = $faker->randomElement($aziende);
-        $train->stazione_di_partenza = $faker->randomElement($stazioni);
-        $train->stazione_di_arrivo = $faker->randomElement($stazioni);
-        $train->data_partenza = $faker->date();
-        $train->orario_partenza = $faker->time();
-        $train->orario_arrivo = $faker->time();
-        $train->codice_treno = $faker->randomNumber(4, true);
-        $train->prezzo_biglietto = $faker->randomFloat(2, 10, 999);
-        $train->numero_carrozze = $faker->numberBetween(1, 10);
+        for($i = 0; $i <= 1000; $i++) {
 
-        $train->save();
+            $train = new Train();
+
+            $train->azienda = $faker->randomElement($aziende);
+            $train->stazione_di_partenza = $faker->randomElement($stazioni);
+            $train->stazione_di_arrivo = $faker->randomElement($stazioni);
+            $train->data_partenza = $faker->dateTimeBetween('now', '+90 days')->format('d-m-Y');
+            $train->orario_partenza = $faker->time('H:i');
+            $train->orario_arrivo = $faker->time('H:i');
+            $train->codice_treno = $faker->randomNumber(4, true);
+            $train->prezzo_biglietto = $faker->randomFloat(2, 10, 999);
+            $train->numero_carrozze = $faker->numberBetween(1, 10);
+    
+            $train->save();
+        }
     }
 }

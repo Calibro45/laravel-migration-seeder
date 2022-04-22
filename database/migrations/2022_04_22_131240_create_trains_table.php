@@ -17,7 +17,7 @@ class CreateTrainsTable extends Migration
             $table->string('azienda', 50);
             $table->string('stazione_di_partenza', 50);
             $table->string('stazione_di_arrivo', 50);
-            $table->string('data_partenza', 15);
+            $table->string('data_partenza', 20);
             $table->string('orario_partenza', 10);
             $table->string('orario_arrivo', 10);
             $table->smallInteger('codice_treno')->unsigned();
